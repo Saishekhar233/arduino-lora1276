@@ -84,7 +84,7 @@ bool LORA::config()
 	// bandwidth = 500Hz, spreading factor=7,
 	// coding rate = 4/5,explict header mode 
 	setHeaderMode(_headerMode);
-	setRFpara(LR_BW_500k,LR_CODINGRATE_1p25,LR_SPREADING_FACTOR_7,LR_PAYLOAD_CRC_ON);
+	setRFpara(LR_BW_125k,LR_CODINGRATE_1p25,LR_SPREADING_FACTOR_7,LR_PAYLOAD_CRC_OFF);
 	// LNA
 	SPIWriteReg(LR_RegModemConfig3,LR_MOBILE_MODE);	
 	// max rx time out
