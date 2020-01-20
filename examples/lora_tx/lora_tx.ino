@@ -8,11 +8,11 @@
 // Flow:receive "T" from serial->send a packet
 // data of packet is "swwxABCDEFGHIm"
 
-#include <LORA.h>
+#include "LORA.h"
 #include <SPI.h>
 #include <SoftwareSerial.h>
-LORA lora;
-unsigned char tx_buf[]={"swwxABCDEFGHIm"};
+LORA lora(15,16,4,5);
+unsigned char tx_buf[]="kiran";
 unsigned char val;
 
 void setup() {
@@ -24,11 +24,12 @@ void setup() {
 }
 void loop() 
 {
-    val=Serial.read();  // please make sure serial is OK befor runing this code
-    if(val=='T')    // tx a packet if receive "T"
-    {
+   // val=Serial.read();  // please make sure serial is OK befor runing this code
+    //if(val=='T')    // tx a packet if receive "T"
+    //{
        lora.txPacket(tx_buf,sizeof(tx_buf));
        lora.enterStbyMode();    // turn to standby mode 
        Serial.println("tx");
-    }
+    //}
+    delay(1000);
 }

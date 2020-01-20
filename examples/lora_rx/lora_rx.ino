@@ -8,12 +8,12 @@
 // Flow:receive packet from tx->print to serial
 // data of packet is "swwxABCDEFGHIm"
 
-#include<LORA.h>
+#include"LORA.h"
 #include <SPI.h>
 #include <SoftwareSerial.h>
-LORA lora;
+LORA lora(15,16,4,5);
 
-unsigned char flag=1;    //  flag of rx mode
+//unsigned char flag=1;    //  flag of rx mode
 unsigned char rx_len;
 unsigned char rx_buf[20];
 
@@ -27,15 +27,16 @@ void setup() {
 }
 void loop() 
 {
-    if(flag==1)
-    {
+    //if(flag==1)
+    //{
         if(lora.waitIrq(LR_RXDONE_MASK))    // wait for RXDONE interrupt
         {
             lora.clrInterrupt();
             rx_len=lora.rxPacket(rx_buf);  // read rx data
-            Serial.write(rx_buf,rx_len);    // print out by serial
+            Serial.write(rx_buf,rx_len);// print out by serial
             Serial.println();
+            //Serial.println("hello");
             lora.rxInit();    // wait for packet from master
         }
-    }
+    //}
 }
