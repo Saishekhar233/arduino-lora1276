@@ -136,7 +136,7 @@ bool LORA::setFrequency(uint32_t freq)
 	SPIWriteReg(LR_RegFrMsb,reg[0]);
 	SPIWriteReg(LR_RegFrMid,reg[1]);
 	SPIWriteReg(LR_RegFrLsb,reg[2]);	
-	
+	printf("\nfrequency.......... %d\n",freq);
 	// read if the value has been in register
 	if((reg[0]!=SPIReadReg(LR_RegFrMsb))||(reg[1]!=SPIReadReg(LR_RegFrMid))||(reg[2]!=SPIReadReg(LR_RegFrLsb)))
 		return false;
