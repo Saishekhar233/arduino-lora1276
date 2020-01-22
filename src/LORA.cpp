@@ -276,13 +276,11 @@ bool LORA::txPacket(uint8_t* sendbuf,uint8_t sendLen)
 		}
 		delay(1);
 	}
-	sendbuf = {0};
-	sendlen = {0};
+	//sendbuf = {0};
+	//sendlen = {0};
 	// if tx time out , reset lora module
 	init();
 	return false;
-	sendbuf = {0};
-	sendlen = {0};
 }
 uint8_t LORA::rxPacket(uint8_t* recvbuf)
 {
