@@ -19,6 +19,7 @@ libs:
 
 tags:
   - c
+#conditions
 conds:
   - when: mos.platform == "esp32"
    apply:
