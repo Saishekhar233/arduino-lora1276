@@ -22,7 +22,7 @@ tags:
 #conditions
 conds:
   - when: mos.platform == "esp32"
-   apply:
+    apply:
       config_schema:
         - ["spi.enable", true]
         - ["spi.miso_gpio", 12]
