@@ -19,5 +19,19 @@ libs:
 
 tags:
   - c
-
+conds:
+  - when: mos.platform == "esp32"
+   apply:
+     config-schema:
+       - ["spi.enable", true]
+       - ["spi.miso_gpio", 12]
+       - ["spi.mosi_gpio", 13]
+       - ["spi.sclk_gpio", 14]
+       - ["spi.cs0_gpio", 15]
+       - ["app.reset_gpio","i",{title:"RESET"}]
+       - ["app.reset_gpio",27]
+       - ["app.DIO0_gpio","i",{title:"DIO0"}]
+       - ["app.DIO0_gpio",32]
+       - ["app.DIO1_gpio","i",{title:"DIO1"}]
+       - ["app.DIO1_gpio",33]
 manifest_version: 2017-09-29
