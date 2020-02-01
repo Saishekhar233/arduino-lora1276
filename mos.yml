@@ -24,15 +24,30 @@ conds:
   - when: mos.platform == "esp32"
     apply:
       config_schema:
-        - ["spi.enable", true]
-        - ["spi.miso_gpio", 12]
-        - ["spi.mosi_gpio", 13]
-        - ["spi.sclk_gpio", 14]
-        - ["spi.cs0_gpio", 15]
-        - ["LoRa.reset_gpio","i",{title:"RESET"}]
-        - ["LoRa.reset_gpio",27]
-        - ["LoRa.DIO0_gpio","i",{title:"DIO0"}]
-        - ["LoRa.DIO0_gpio",32]
-        - ["LoRa.DIO1_gpio","i",{title:"DIO1"}]
-        - ["LoRa.DIO1_gpio",33]
+        - ["lora.reset_gpio","i",{title:"RESET"}]
+        - ["lora.reset_gpio",27]
+        - ["lora.DIO0_gpio","i",{title:"DIO0"}]
+        - ["lora.DIO0_gpio",32]
+        - ["lora.DIO1_gpio","i",{title:"DIO1"}]
+        - ["lora.DIO1_gpio",33]
+
+  - when: mos.platform == "esp8266"
+    apply:
+      config_schema:
+        - ["lora.reset_gpio","i",{title:"RESET"}]
+        - ["lora.reset_gpio",-1]
+        - ["lora.DIO0_gpio","i",{title:"DIO0"}]
+        - ["lora.DIO0_gpio",-1]
+        - ["lora.DIO1_gpio","i",{title:"DIO1"}]
+        - ["lora.DIO1_gpio",-1]
+
+  - when: mos.platform == "stm32"
+    apply:
+      config_schema:
+        - ["lora.reset_gpio","i",{title:"RESET"}]
+        - ["lora.reset_gpio",-1]
+        - ["lora.DIO0_gpio","i",{title:"DIO0"}]
+        - ["lora.DIO0_gpio",-1]
+        - ["lora.DIO1_gpio","i",{title:"DIO1"}]
+        - ["lora.DIO1_gpio",-1]
 manifest_version: 2017-09-29
