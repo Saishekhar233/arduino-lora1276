@@ -14,7 +14,7 @@ void mgos_LORA_close(LORA *lora)
     }
 }
 
-bool mgos_LOR_init(LORA *lora)
+bool mgos_LORA_init(LORA *lora)
 {
     if (lora == nullptr)
         return false;

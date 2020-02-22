@@ -21,7 +21,7 @@ extern "C"
     void mgos_LORA_close(LORA *lora);
 
     ///  @return  1 if ok, 0 otherwise
-    bool mgos_LOR_init(LORA *lora);
+    bool mgos_LORA_init(LORA *lora);
     ///  Initialise rx mode.
     ///  @return  1 if ok, 0 otherwise
     bool mgos_LORA_rxInit(LORA *lora);
